@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlist_new.c                                        :+:      :+:    :+:   */
+/*   ft_get_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:35:22 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 19:49:10 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/20 19:28:18 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/07/20 19:31:40 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_dlist		*dlist_new(t_dlist *p_new)
+char		*ft_get_path(char *arg)
 {
-	p_new = malloc(sizeof(*p_new));
-	if (p_new != NULL)
+	int		index;
+	char	*tmp;
+	int		index2;
+
+	index = 3;
+	index2 = 0;
+	tmp = malloc(sizeof(char) * ft_strlen(arg));
+	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\r' || arg[index] == '\n')
+		index++;
+	while (arg[index] != '\0' && arg[index] != ' ')
 	{
-		p_new->p_head = NULL;
-		p_new->p_tail = NULL;
+		tmp[index2] = arg[index];
+		index++;
+		index2++;
 	}
-	return (p_new);
+	tmp[index2] = '\0';
+	return (tmp);
 }

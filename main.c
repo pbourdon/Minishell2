@@ -8,7 +8,7 @@ int		main(void)
 	t_dlist		*list;
 
 	list = NULL;
-	list = dlist_new();
+	list = dlist_new(list);
 	list = ft_cpy_env(list);
 	ft_display_list(list);
 	ft_putstr("$>");
@@ -17,13 +17,12 @@ int		main(void)
 		line2 = ft_delete_tab(line1);
 		list = ft_choose(line2, list);
 		free(line2);
-		ft_putstr("here");
 		if (ft_list_size(list->p_head) == 0)
+		{
+			free(list);
 			return (0);
-//		ft_show_prompt();
-//		ft_delete_list(list);
-	//	free(line1);
-	//	free(line2);
+		}
+		ft_show_prompt();
 	}
 	return (0);
 }

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlist_new.c                                        :+:      :+:    :+:   */
+/*   ft_ins_avant.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:35:22 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 19:49:10 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/10 01:03:44 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/07/10 01:57:47 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_dlist		*dlist_new(t_dlist *p_new)
+char	*get_ele(t_dlist *liste, int pos)
 {
-	p_new = malloc(sizeof(*p_new));
-	if (p_new != NULL)
-	{
-		p_new->p_head = NULL;
-		p_new->p_tail = NULL;
-	}
-	return (p_new);
+	int			i;
+	t_node		*courant;
+
+	i = 1;
+	courant = liste->p_head;
+	while (i++ < pos)
+		courant = courant->p_next;
+	return (courant->data);
 }

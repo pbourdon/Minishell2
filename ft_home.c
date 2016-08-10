@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlist_new.c                                        :+:      :+:    :+:   */
+/*   ft_home.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:35:22 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 19:49:10 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/20 19:45:05 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/07/20 19:47:25 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_dlist		*dlist_new(t_dlist *p_new)
+char	*home(t_dlist *list)
 {
-	p_new = malloc(sizeof(*p_new));
-	if (p_new != NULL)
-	{
-		p_new->p_head = NULL;
-		p_new->p_tail = NULL;
-	}
-	return (p_new);
+	return (get_ele(list, ft_search_list(list, "HOME=")) + 5);
 }

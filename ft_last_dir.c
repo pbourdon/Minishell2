@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlist_new.c                                        :+:      :+:    :+:   */
+/*   ft_last_dir.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:35:22 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 19:49:10 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/20 19:43:20 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/07/20 19:44:16 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_dlist		*dlist_new(t_dlist *p_new)
+char			*last_dir(char *path)
 {
-	p_new = malloc(sizeof(*p_new));
-	if (p_new != NULL)
-	{
-		p_new->p_head = NULL;
-		p_new->p_tail = NULL;
-	}
-	return (p_new);
+	int		i;
+
+	i = ft_strlen(path);
+	while (i > 0 && path[i] != '/')
+		i--;
+	return (path + i);
 }

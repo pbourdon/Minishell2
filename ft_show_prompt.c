@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlist_new.c                                        :+:      :+:    :+:   */
+/*   ft_show_prompt.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:35:22 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 19:49:10 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/12 23:29:15 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/07/12 23:31:11 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_dlist		*dlist_new(t_dlist *p_new)
+void		ft_show_prompt(void)
 {
-	p_new = malloc(sizeof(*p_new));
-	if (p_new != NULL)
-	{
-		p_new->p_head = NULL;
-		p_new->p_tail = NULL;
-	}
-	return (p_new);
+	ft_putstr("$> ");
+	ft_putstr(last_dir(getcwd(0, 0)));
+	ft_putstr(" : ");
 }

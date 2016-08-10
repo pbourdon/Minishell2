@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlist_new.c                                        :+:      :+:    :+:   */
+/*   exchange_element.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:35:22 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 19:49:10 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/20 19:37:39 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/07/20 19:43:05 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_dlist		*dlist_new(t_dlist *p_new)
+t_dlist		*ft_exchange_element(t_dlist *line)
 {
-	p_new = malloc(sizeof(*p_new));
-	if (p_new != NULL)
-	{
-		p_new->p_head = NULL;
-		p_new->p_tail = NULL;
-	}
-	return (p_new);
+	int		pos;
+	char	*oldpwd;
+	char	*new_pwd;
+
+	pos = ft_search_list(line, "PWD");
+	oldpwd = ft_strdup(get_ele(line, pos));
+	line = supp(line, pos);
+	new_pwd = getcwd(0, 0);
+	line = ins_avant(line, ft_strjoin("PWD=", new_pwd), pos);
+	pos = ft_search_list(line, "OLDPWD");
+	line = supp(line, pos);
+	line = ins_avant(line, ft_strjoin("OLDPWD=", oldpwd + 4), pos);
+	return (line);
 }

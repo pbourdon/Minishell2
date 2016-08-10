@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 17:45:28 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 19:33:11 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/10 19:57:11 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ t_dlist		*ft_choose(char *arg, t_dlist *list)
 	index = 0;
 	while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\n' || arg[index] == '\r')
 		index++;
-/*	if (ft_strncmp("cd", arg, 2) == 0)
+	if (ft_strncmp("cd", arg, 2) == 0)
 		ft_run_cd(arg, list);
-	else if (ft_strncmp("echo", arg, 4) == 0)
+/*	else if (ft_strncmp("echo", arg, 4) == 0)
 		ft_run_echo(arg, list);
 	else if (ft_strncmp("setenv", arg, 6) == 0)
 	{
@@ -73,11 +73,8 @@ t_dlist		*ft_choose(char *arg, t_dlist *list)
 	else if (ft_strncmp("unsetenv", arg, 8) == 0)
 		ft_run_unsetenv(arg + 8, list);
 		*/
-	if (ft_strncmp("exit", arg, 4) == 0)
+	else if (ft_strncmp("exit", arg, 4) == 0)
 	{
-		ft_display_list(list);
-		ft_putstr(list->p_head->data);
-		ft_putchar('\n');
 		ft_delete_list(&list->p_head, &list->p_tail);
 		return (list);
 	}
