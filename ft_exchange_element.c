@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 19:37:39 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/07/20 19:43:05 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/11 16:24:32 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ t_dlist		*ft_exchange_element(t_dlist *line)
 	pos = ft_search_list(line, "OLDPWD");
 	line = supp(line, pos);
 	line = ins_avant(line, ft_strjoin("OLDPWD=", oldpwd + 4), pos);
+	free(oldpwd);
 	return (line);
 }

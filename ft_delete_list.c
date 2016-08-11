@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 15:34:44 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/11 16:29:02 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ void		ft_delete_list(t_node **head, t_node **tail)
 	while (courant != NULL)
 	{
 		next = courant->p_next;
-	//	free(courant->data);
-	//	free(courant->p_next);
+//		free(courant->data);
+//		ATTENTION SI TU FREE COURANT DATA SA DECONNE SEC
+		free(courant->p_next);
 		courant = next;
 	}
-//	free(*head);
+	free(*head);
 	*head = NULL;
 }
