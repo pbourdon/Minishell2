@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 15:43:08 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/11 16:18:23 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,5 @@ void				ft_memmove(void *dest, const void *source, size_t len);
 char				*ft_delete_tab(char *str);
 int					ft_display_list(t_dlist *p_list);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-void				ft_bzero(void *s1, size_t n);
 
 #endif

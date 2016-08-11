@@ -17,6 +17,7 @@ int		main(void)
 		line2 = ft_delete_tab(line1);
 		list = ft_choose(line2, list);
 		free(line2);
+		free(line1);
 		if (ft_list_size(list->p_head) == 0)
 		{
 			free(list);
@@ -24,6 +25,5 @@ int		main(void)
 		}
 		ft_show_prompt();
 	}
-//	free(line1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:04:26 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/11 15:42:43 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/11 16:18:54 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,8 @@ SRC		=	ft_atoi.c\
 			ft_strncmp.c\
 			ft_delete_tab.c\
 			ft_bzero.c\
+			ft_strnew.c\
+			ft_memalloc.c\
 
 OBJ		=	$(SRC:.c=.o)
 	S		=	$(addprefix $(SDIR), $(SRC))
