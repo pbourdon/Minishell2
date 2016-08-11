@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/22 18:46:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 18:51:47 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/11 15:31:29 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void		dlist_delete(t_dlist **p_list)
 		{
 			p_del = p_temp;
 			p_temp = p_temp->p_next;
-			free(p_del);
+		//	free(p_del);
 		}
-		free(*p_list);
+	//	free(*p_list);
 		p_list = NULL;
 	}
 }

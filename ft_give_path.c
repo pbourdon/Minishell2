@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_give_path.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 15:34:44 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/21 00:26:59 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/07/25 19:25:43 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		ft_delete_list(t_node **head, t_node **tail)
+char	*ft_give_path(char *arg)
 {
-	t_node		*next;
-	t_node		*courant;
+	int		index;
 
-	courant = *head;
-	while (courant != NULL)
-	{
-		next = courant->p_next;
-	//	free(courant->data);
-	//	free(courant->p_next);
-		courant = next;
-	}
-//	free(*head);
-	*head = NULL;
+	index = 0;
+	while (arg[index] != '\0' && arg[index] != ' ' && arg[index] != '\t' && arg[index] != '\n' && arg[index] != '\r')
+		index++;
+	return (ft_strdup(ft_strcut(arg, index)));
 }

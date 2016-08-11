@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_strcut.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 15:34:44 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/21 00:31:21 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/07/21 00:36:05 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		ft_delete_list(t_node **head, t_node **tail)
+char	*ft_strcut(char *str, int index)
 {
-	t_node		*next;
-	t_node		*courant;
+	char		*tmp;
+	int			index2;
 
-	courant = *head;
-	while (courant != NULL)
+	index2 = 0;
+	tmp = malloc(sizeof(char) * index);
+	while (index2 < index)
 	{
-		next = courant->p_next;
-	//	free(courant->data);
-	//	free(courant->p_next);
-		courant = next;
+		tmp[index2] = str[index2];
+		index2++;
 	}
-//	free(*head);
-	*head = NULL;
+	tmp[index2] = '\0';
+	return (tmp);
 }

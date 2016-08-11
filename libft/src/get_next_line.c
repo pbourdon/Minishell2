@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 23:18:43 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/07/28 18:07:07 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/11 16:02:26 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 static char		*read_alpha(int const fd, char *tmp, int *check)
 {
 	char		tmp2[BUFF_SIZE + 1];
+	char		*tmp3;
 
 	*check = read(fd, tmp2, BUFF_SIZE);
 	tmp2[*check] = '\0';
-	return (ft_strjoin(tmp, tmp2));
+	tmp3 = ft_strjoin(tmp, tmp2);
+//	free(tmp2);
+	return (tmp3);
 }
 
 int				save_lines(int *check, char **tmp, int const fd, char **line)
@@ -55,8 +58,6 @@ int				get_next_line(int const fd, char **line)
 			*cursor = '\0';
 			*line = ft_strdup(tmp);
 			ft_memmove(tmp, cursor + 1, ft_strlen(cursor + 1) + 1);
-			free(tmp);
-			free(*line);
 			return (1);
 		}
 		tmp = read_alpha(fd, tmp, &check);
@@ -65,8 +66,6 @@ int				get_next_line(int const fd, char **line)
 	{
 		*line = ft_strdup(tmp);
 		ft_memmove(tmp, cursor + 1, ft_strlen(cursor + 1) + 1);
-		free(*line);
-		free(tmp);
 		return (1);
 	}
 	free(tmp);

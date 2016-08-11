@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 23:58:26 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 20:06:11 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/11 15:32:33 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_dlist *supp(t_dlist *liste, size_t pos)
 		courant->p_prev->p_next = courant->p_next;
 		courant->p_next->p_prev = courant->p_prev;
 	}
-	free(supp_element->data);
-	free(supp_element);
+//	free(supp_element->data);
+//	free(supp_element);
 	return (liste);
 }

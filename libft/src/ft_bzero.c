@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 15:34:44 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/11 15:40:53 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/11 15:41:24 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void		ft_delete_list(t_node **head, t_node **tail)
+void	ft_bzero(void *s, size_t n)
 {
-	t_node		*next;
-	t_node		*courant;
+	size_t		i;
 
-	courant = *head;
-	while (courant != NULL)
+	i = 0;
+	while (i < n)
 	{
-		next = courant->p_next;
-	//	free(courant->data);
-	//	free(courant->p_next);
-		courant = next;
+		((char *)s)[i] = 0;
+		i++;
 	}
-//	free(*head);
-	*head = NULL;
 }

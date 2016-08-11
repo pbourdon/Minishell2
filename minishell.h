@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/10 18:46:42 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/11 15:43:08 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_dlist				*dlist_append(t_dlist *p_list, char *data);
 t_dlist				*ft_add_data(t_dlist *p_list, char *data);
 t_dlist				*nik_the_norm2(t_dlist *p_list, t_node *p_new, int i);
 t_dlist				*nik_the_norm3(t_dlist *p_list, t_node *p_new, int i);
-t_dlist				*dlist_new(void);
+t_dlist				*dlist_new(t_dlist *p_new);
 t_dlist				*ft_cpy_env(t_dlist *list);
 pid_t				create_process(void);
 int					ft_search_list(t_dlist *liste, char *data);
@@ -123,5 +123,6 @@ void				ft_memmove(void *dest, const void *source, size_t len);
 char				*ft_delete_tab(char *str);
 int					ft_display_list(t_dlist *p_list);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+void				ft_bzero(void *s1, size_t n);
 
 #endif

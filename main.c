@@ -24,5 +24,6 @@ int		main(void)
 		}
 		ft_show_prompt();
 	}
+//	free(line1);
 	return (0);
 }
