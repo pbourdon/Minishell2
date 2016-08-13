@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/22 18:46:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 15:31:29 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/13 03:26:41 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ t_dlist		*dlist_prepend(t_dlist *p_list, char *data)
 		p_new = malloc(sizeof(*p_new));
 		if (p_new != NULL)
 		{
-			p_new->data = malloc(sizeof(char) * (ft_strlen(data) +
-				ft_strlen(data)) + 1);
 			p_new->data = ft_strdup(data);
 			p_new->p_prev = NULL;
 			if (p_list->p_tail == NULL)
@@ -75,7 +73,11 @@ t_dlist		*dlist_append(t_dlist *p_list, char *data)
 
 t_dlist		*ft_add_data(t_dlist *p_list, char *data)
 {
+//	if (p_list != NULL)
+//		p_list = ins_avant(p_list, data, 1);
+
 	if (p_list != NULL)
 		p_list = dlist_append(p_list, data);
+
 	return (p_list);
 }

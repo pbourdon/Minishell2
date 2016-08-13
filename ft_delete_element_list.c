@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 23:58:26 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 15:32:33 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/13 03:33:42 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ t_dlist *supp(t_dlist *liste, size_t pos)
 	{
 		supp_element = liste->p_tail;
 		liste->p_tail = liste->p_tail->p_next;
-		if (liste->p_tail == NULL)
-			liste->p_tail = NULL;
-		else
-			liste->p_head->p_prev = NULL;
 	}
 	else
 	{

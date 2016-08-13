@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 16:18:23 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/13 01:14:38 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int					ft_get_total_path(t_dlist *list);
 void				ft_delete_list(t_node **list, t_node **tail);
 void				ft_free(char **options);
 char				**ft_set_zero(int index, char **options);
-
+t_dlist				*ft_del_ele_list(t_dlist *list, size_t position);
 
 void				ft_display_tab(char **arg);
 char				*ft_strcut(char *str, int index);
@@ -123,5 +123,6 @@ void				ft_memmove(void *dest, const void *source, size_t len);
 char				*ft_delete_tab(char *str);
 int					ft_display_list(t_dlist *p_list);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+char				*ft_strcpy(char *dst, const char *src);
 
 #endif

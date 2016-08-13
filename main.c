@@ -11,6 +11,9 @@ int		main(void)
 	list = dlist_new(list);
 	list = ft_cpy_env(list);
 	ft_display_list(list);
+//	ft_delete_list(&list->p_head, &list->p_tail);
+//	free(list);
+//	return (0);
 	ft_putstr("$>");
 	while (get_next_line(1, &line1) == 1)
 	{

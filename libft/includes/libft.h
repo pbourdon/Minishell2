@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 08:38:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 16:18:24 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/12 23:21:11 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void			*ft_memset(void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memalloc(size_t size);
 char			*ft_strnew(size_t size);
+char			*ft_strcpy(char *dst, const char *src);
 
 #endif

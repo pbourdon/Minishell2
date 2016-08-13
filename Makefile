@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/11 15:26:29 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/13 01:14:55 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC =	main.c\
 		ft_get_element.c\
 		ft_ins_avant.c\
 		ft_delete_element_list.c\
+		ft_del_ele_list.c\
 	##	ft_find_option.c\
 		ft_run_exe.c\
 		ft_tab_from_list.c\

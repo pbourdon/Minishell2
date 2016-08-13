@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 17:45:28 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 15:49:55 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/13 03:50:33 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char		*ft_search_file(char *arg)
 {
 	return (arg);
 }
+
 char		*ft_get_file(char *arg)
 {
 	char		*tmp;
@@ -53,6 +54,7 @@ char		**ft_init_tab(char *arg)
 	}
 	return (tab);
 }
+
 t_dlist		*ft_choose(char *arg, t_dlist *list)
 {
 	int			index;
@@ -61,7 +63,9 @@ t_dlist		*ft_choose(char *arg, t_dlist *list)
 	while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\n' || arg[index] == '\r')
 		index++;
 	if (ft_strncmp("cd", arg, 2) == 0)
+	{
 		ft_run_cd(arg, list);
+	}
 /*	else if (ft_strncmp("echo", arg, 4) == 0)
 		ft_run_echo(arg, list);
 	else if (ft_strncmp("setenv", arg, 6) == 0)
