@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/13 01:06:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/13 03:40:33 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 15:51:46 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_dlist		*ft_del_ele_list(t_dlist *list, size_t position)
 					p_temp->p_next->p_prev = p_temp->p_prev;
 					p_temp->p_prev->p_next = p_temp->p_next;
 				}
-			//	free(p_temp);
+				free(p_temp);
 			}
 			else
 			{

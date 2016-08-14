@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/13 01:14:38 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 16:19:18 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char				ft_strcmp2(char *s1, char *s2);
 char				*ft_give_path(char *arg);
 char				*ft_get_auto_path(int x, t_dlist *list);
 int					ft_get_total_path(t_dlist *list);
-void				ft_delete_list(t_node **list, t_node **tail);
+void				ft_delete_list(t_dlist **p_list);
 void				ft_free(char **options);
 char				**ft_set_zero(int index, char **options);
 t_dlist				*ft_del_ele_list(t_dlist *list, size_t position);
