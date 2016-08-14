@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 23:18:43 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 17:56:48 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 18:05:57 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static char		*read_alpha(int const fd, char *tmp, int *check)
 	*check = read(fd, tmp2, BUFF_SIZE);
 	tmp2[*check] = '\0';
 	tmp3 = ft_strjoin(tmp, tmp2);
+	free(tmp2);
+	free(tmp);
 	return (tmp3);
 }
 
@@ -66,6 +68,7 @@ int				get_next_line(int const fd, char **line)
 	{
 		*line = ft_strdup(tmp);
 		ft_memmove(tmp, cursor + 1, ft_strlen(cursor + 1) + 1);
+		free(tmp);
 		return (1);
 	}
 	free(tmp);

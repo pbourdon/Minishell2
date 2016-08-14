@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/05 14:24:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/13 03:28:02 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 18:01:06 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		ft_run_cd(char *arg, t_dlist *line)
 	else if (tmp[0] == '~' && tmp[1] == '/')
 	{
 		free(tmp);
-		tmp = ft_strjoin(ft_strdup(home(line)), tmp + 1);
+		tmp = ft_strjoin(home(line), tmp + 1);
 	}
 	else if (ft_strcmp("~", tmp) == 0 || ft_strcmp2("cd", tmp2) == 0)
 	{
