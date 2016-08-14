@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/07/28 21:11:22 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 19:33:44 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ char		*ft_boucle(char *arg)
 	process = malloc(sizeof(char) * ft_strlen(arg));
 	index2 = 0;
 	index = 0;
-	while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\n' || arg[index] == '\r')
+	while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\n'
+		|| arg[index] == '\r')
 		index++;
-	while (arg[index] != '\0' && arg[index] != '\t' && arg[index] != '\n' && arg[index] != ' ')
+	while (arg[index] != '\0' && arg[index] != '\t' && arg[index] != '\n'
+		&& arg[index] != ' ')
 	{
 		process[index2] = arg[index];
 		index2++;
@@ -32,7 +34,8 @@ char		*ft_boucle(char *arg)
 	}
 	process[index2] = '\0';
 	index2 = 0;
-	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\n' || arg[index] == '\n')
+	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\n'
+		|| arg[index] == '\n')
 		index++;
 	return (process);
 }
@@ -117,11 +120,14 @@ char		*ft_generate_path(char *arg, t_dlist *list)
 {
 	int		compteur;
 	char	*strjoin;
+	char	*auto_path;
 
 	compteur = ft_get_total_path(list) + 1;
 	while (compteur > 0)
 	{
-		strjoin = ft_strjoin(ft_get_auto_path(compteur, list), arg);
+		auto_path = ft_get_auto_path(compteur, list);
+		strjoin = ft_strjoin(auto_path, arg);
+		free(auto_path);
 		if (access(strjoin, X_OK) == 0)
 			return (strjoin);
 		compteur--;
@@ -136,37 +142,35 @@ int			ft_check_arg(char *arg, t_dlist *list)
 	int		index;
 	char	*boucle;
 	char	*generated;
+	char	*tmp;
 	char	**options;
 
 	boucle = ft_boucle(arg);
+	options = ft_get_options(arg, list);
 	index = 0;
 	if (arg[index] == '/')
 	{
-	//	ft_run_exe(arg);
-		ft_run_exe(ft_give_path(arg), ft_get_options(arg, list), list);
+		tmp = ft_give_path(arg);
+		ft_run_exe(tmp, options, list);
+		ft_free_tab(options);
+		free(boucle);
+		free(tmp);
 		return (1);
 	}
 	else if (arg[index] != '\0')
 	{
-		ft_putstr("arg is : ");
-		ft_putstr(arg);
-		ft_putchar('\n');
 		generated = ft_generate_path(boucle, list);
-		ft_putstr(" is : ");
-		ft_putstr(generated);
-		ft_putchar('\n');
-		options = ft_get_options(arg, list);
-		ft_putstr("options[0] && options[1] ");
-		ft_putstr(options[0]);
-		ft_putstr(" ");
-		ft_putstr(options[1]);
-		ft_putchar('\n');
 		ft_run_exe(generated, options, list);
+		ft_free_tab(options);
 		free(generated);
 		free(boucle);
 		return (1);
 	}
 	else
+	{
+		ft_free_tab(options);
+		free(boucle);
 		return (0);
+	}
 	return (1);
 }

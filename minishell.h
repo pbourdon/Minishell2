@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 16:19:18 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 19:12:40 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,6 @@ char				*ft_delete_tab(char *str);
 int					ft_display_list(t_dlist *p_list);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strcpy(char *dst, const char *src);
+void				ft_free_tab(char **tab);
 
 #endif

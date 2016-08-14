@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 15:43:35 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/07/28 20:53:45 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 19:10:36 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,11 @@ int		ft_run_exe(char *path, char **options, t_dlist *list)
 		waitpid(pid, 0, 0);
 	if (pid == 0)
 	{
-		ft_putstr("path : ");
-		ft_putstr(path);
-		ft_putstr("\noptions[0] ");
-		ft_putstr(options[0]);
-		ft_putstr("options[1] ");
-		ft_putstr(options[1]);
-	//	ft_putstr("options[2] ");
-	//	ft_putstr(options[2]);
-		ft_putchar('\n');
 		ft_display_tab(ft_tab_from_list(list));
 		execve(path, options, ft_tab_from_list(list));
 		// execve("/bin/ls", options2, tab2);
 		ft_putstr("error execve");
 		exit(0);
 	}
-
 	return EXIT_SUCCESS;
 }

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/26 16:26:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/07/26 17:01:24 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 19:41:58 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*ft_get_auto_path(int x, t_dlist *list)
 	index = 0;
 	compteur = 0;
 	retur = malloc(sizeof(char) * ft_strlen(get_ele(list, ft_search_list(list, "PATH"))) + 5);
-	temp = malloc(sizeof(char) * ft_strlen(get_ele(list, ft_search_list(list, "PATH"))) + 5);
 	temp = get_ele(list, ft_search_list(list, "PATH=")) + 5;
 	while (temp[index] != '\0')
 	{
@@ -51,8 +50,6 @@ char	*ft_get_auto_path(int x, t_dlist *list)
 		retur[compteur + 1] = '\0';
 		if (drop == x)
 		{
-		//	ft_putstr("PATH CURRENTLY IN PROCESS :");
-		//	ft_putstr(retur);
 			return (retur);
 		}
 		compteur = 0;
