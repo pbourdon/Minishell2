@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/22 18:46:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/13 03:26:41 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 16:52:50 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_dlist		*dlist_prepend(t_dlist *p_list, char *data)
 		p_new = malloc(sizeof(*p_new));
 		if (p_new != NULL)
 		{
-			p_new->data = ft_strdup(data);
+			p_new->data = data;
 			p_new->p_prev = NULL;
 			if (p_list->p_tail == NULL)
 				p_list = nik_the_norm2(p_list, p_new, 0);
@@ -60,7 +60,7 @@ t_dlist		*dlist_append(t_dlist *p_list, char *data)
 		p_new = malloc(sizeof(*p_new));
 		if (p_new != NULL)
 		{
-			p_new->data = ft_strdup(data);
+			p_new->data = data;
 			p_new->p_next = NULL;
 			if (p_list->p_tail == NULL)
 				p_list = nik_the_norm3(p_list, p_new, 0);

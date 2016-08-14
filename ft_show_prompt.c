@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/12 23:29:15 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/07/12 23:31:11 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 17:57:25 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 void		ft_show_prompt(void)
 {
+	char	*tmp;
+
+	tmp = getcwd(0, 0);
 	ft_putstr("$> ");
-	ft_putstr(last_dir(getcwd(0, 0)));
+	ft_putstr(last_dir(tmp));
+	free(tmp);
 	ft_putstr(" : ");
 }

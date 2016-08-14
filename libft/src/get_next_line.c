@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 23:18:43 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 16:23:45 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 17:56:48 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int				get_next_line(int const fd, char **line)
 			*cursor = '\0';
 			*line = ft_strdup(tmp);
 			ft_memmove(tmp, cursor + 1, ft_strlen(cursor + 1) + 1);
+			free(tmp);
 			return (1);
 		}
 		tmp = read_alpha(fd, tmp, &check);
