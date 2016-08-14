@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 17:45:28 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 18:01:38 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/14 18:14:23 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,11 @@ t_dlist		*ft_choose(char *arg, t_dlist *list)
 	{
 		ft_run_cd(arg, list);
 	}
-/*	else if (ft_strncmp("echo", arg, 4) == 0)
+	else if (ft_strncmp("echo", arg, 4) == 0)
+	{
 		ft_run_echo(arg, list);
-	else if (ft_strncmp("setenv", arg, 6) == 0)
+	}
+/*	else if (ft_strncmp("setenv", arg, 6) == 0)
 	{
 		ft_run_setenv(arg, list);
 	}
