@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/14 18:19:00 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/14 18:58:06 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,17 +50,17 @@ SRC =	main.c\
 		ft_run_echo.c\
 		ft_strupcase.c\
 		ft_run_setenv.c\
-	##	ft_find_option.c\
-		ft_run_exe.c\
-		ft_tab_from_list.c\
-		ft_check_file.c\
 		ft_check_arg.c\
 		ft_run_unsetenv.c\
 		ft_get_auto_path.c\
 		ft_get_total_path.c\
-		ft_free.c\
-		ft_display_tab.c\
 		ft_set_zero.c\
+		ft_run_exe.c\
+		ft_tab_from_list.c\
+		ft_check_file.c\
+		ft_display_tab.c\
+	##		ft_find_option.c\
+		ft_free.c\
 
 OBJ = $(SRC:.c=.o)
 
