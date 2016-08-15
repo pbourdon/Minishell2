@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/15 16:59:40 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/15 19:37:35 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ SRC =	main.c\
 		ft_display_tab.c\
 		ft_free_tab.c\
 		ft_get_size.c\
+		ft_get_options.c\
 	##		ft_find_option.c\
 		ft_free.c\
 

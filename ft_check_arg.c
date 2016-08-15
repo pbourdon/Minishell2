@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 18:35:12 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 20:36:50 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,71 +39,25 @@ char		*ft_boucle(char *arg)
 	return (process);
 }
 
-char		**ft_get_options(char *arg, t_dlist *list)
+char		**ft_get_options(char *arg, t_dlist *list, int compteur, int x)
 {
 	char	**option;
-	int		compteur;
 	int		index;
-	int		x;
-	int		index4;
-	int		temp;
-	char	*boucle;
 
-	index4 = 0;
-	temp = 0;
-	x = 1;
-	index = 0;
-	compteur = 0;
-	boucle = ft_boucle(arg);
-	option = malloc(sizeof(char *) * ft_get_size(arg));
-	option = ft_set_zero(ft_get_size(arg), option);
-	option[0] = ft_memalloc(ft_strlen(boucle) + 1);
-	while (boucle[index] != '\0')
-	{
-		option[0][temp] = boucle[index];
-		index++;
-		temp++;
-	}
-	option[0][temp] = '\0';
-	free(boucle);
+	option = ft_get_options1(arg, option);
 	index = ft_strlen(option[0]);
-	while (arg[index] != '\0' && (arg[index] == ' ' || arg[index] == '\t'
-		|| arg[index] == '\n'))
-		index++;
 	while (arg[index] != '\0')
 	{
 		if (arg[index] == '-')
-		{
-			option[x] = ft_memalloc(ft_strlen(arg) + 1);
-			while (arg[index] != '\0' && arg[index] != ' ' &&
-				arg[index] != '\t' && arg[index] != '\n')
-			{
-				option[x][compteur] = arg[index];
-				compteur++;
-				index++;
-			}
-			option[x][compteur] = '\0';
-			compteur = 0;
-			x++;
-		}
+			option = ft_get_options2(arg, option, index, x++);
 		if (index < ft_strlen(arg) && arg[index] != '\0' && arg[index] != ' ')
 		{
 			option[x] = ft_memalloc(ft_strlen(arg) + ft_strlen(home(list) + 1));
 			while (arg[index] != '\0' && arg[index] != ' ')
 			{
-				if (arg[index] == '~')
-				{
-					while (home(list)[index4] != '\0')
-					{
-						option[x][compteur] = home(list)[index4];
-						index4++;
-						compteur++;
-					}
-					index++;
-				}
-				option[x][compteur] = arg[index];
-				compteur++;
-				index++;
+				if (arg[index] == '~' && index++ > 0)
+					option = ft_get_options3(home(list), x, &compteur, option);
+				option[x] = ft_get_options4(&index, &compteur, option[x], arg);
 			}
 			option[x][compteur] = '\0';
 			compteur = 0;
@@ -137,26 +91,30 @@ char		*ft_generate_path(char *arg, t_dlist *list)
 	return (NULL);
 }
 
+int			ft_check_arg2(char *arg, char **options, t_dlist *list, char *boucl)
+{
+	char	*tmp;
+
+	tmp = ft_give_path(arg);
+	ft_run_exe(tmp, options, list);
+	ft_free_tab(options);
+	free(boucl);
+	free(tmp);
+	return (1);
+}
+
 int			ft_check_arg(char *arg, t_dlist *list)
 {
 	int		index;
 	char	*boucle;
 	char	*generated;
-	char	*tmp;
 	char	**options;
 
 	boucle = ft_boucle(arg);
-	options = ft_get_options(arg, list);
+	options = ft_get_options(arg, list, 0, 1);
 	index = 0;
 	if (arg[index] == '/')
-	{
-		tmp = ft_give_path(arg);
-		ft_run_exe(tmp, options, list);
-		ft_free_tab(options);
-		free(boucle);
-		free(tmp);
-		return (1);
-	}
+		return (ft_check_arg2(arg, options, list, boucle));
 	else if (arg[index] != '\0')
 	{
 		generated = ft_generate_path(boucle, list);

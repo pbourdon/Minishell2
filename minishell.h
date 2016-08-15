@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 18:55:09 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 20:31:23 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,14 @@ void				ft_free(char **options);
 char				**ft_set_zero(int index, char **options);
 t_dlist				*ft_del_ele_list(t_dlist *list, size_t position, t_node
 					*p_temp, size_t i);
+char				**ft_get_options1(char *arg, char **options);
+char				*ft_boucle(char *arg);
+char				**ft_get_options2(char *arg, char **options, int index,
+					int x);
+char				**ft_get_options3(char *home, int x, int *compteur,
+					char **options);
+char				*ft_get_options4(int *index, int *compteur, char *options,
+					char *arg);
 
 void				ft_display_tab(char **arg);
 char				*ft_strcut(char *str, int index);
