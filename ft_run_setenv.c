@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 01:16:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 18:37:02 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 16:51:30 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,10 @@ t_dlist			*modify_element(t_dlist *list, char *arg, int index)
 	if (pos == 0)
 		return (list);
 	new = ft_strdup(arg + index + ft_strlen(tmp));
-	list = supp(list, pos);
+	list = ft_del_ele_list(list, pos);
 	tmp3 = ft_strjoin(tmp2, new + 1);
+	free(new);
 	ft_display_list(list);
-	ft_putstr("the new env ");
-	ft_putstr(new);
-	ft_putchar('\n');
 	list = ins_avant(list, tmp3, pos);
 	free(tmp);
 	free(tmp2);
