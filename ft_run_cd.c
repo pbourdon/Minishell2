@@ -6,17 +6,14 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/05 14:24:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 14:07:36 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 18:56:28 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		ft_run_cd(char *arg, t_dlist *line)
+void		ft_run_cd(char *arg, t_dlist *line, char *tmp, char *tmp2)
 {
-	char	*tmp;
-	char	*tmp2;
-
 	tmp2 = ft_delete_space(arg);
 	tmp = ft_get_path(arg);
 	if (ft_strcmp("-", tmp) == 0)
@@ -35,14 +32,9 @@ void		ft_run_cd(char *arg, t_dlist *line)
 		tmp = ft_strdup(home(line));
 	}
 	if (chdir(tmp) == 0)
-	{
-		free(tmp);
 		line = ft_exchange_element(line);
-	}
 	else
-	{
-		free(tmp);
 		ft_error(tmp, 2);
-	}
+	free(tmp);
 	free(tmp2);
 }

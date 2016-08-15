@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 18:19:16 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 18:55:09 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct		s_dlist
 t_dlist				*ft_choose(char *str, t_dlist *liste);
 void				ft_run_ls(char *arg);
 void				ft_find_options(t_arg *arg, char *command);
-void				ft_run_cd(char *arg, t_dlist *list);
+void				ft_run_cd(char *arg, t_dlist *list, char *tmp, char *tmp2);
 void				dlist_delete(t_dlist **p_list);
 t_dlist				*dlist_prepend(t_dlist *p_list, char *data);
 t_dlist				*dlist_append(t_dlist *p_list, char *data);
