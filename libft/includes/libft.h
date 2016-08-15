@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 08:38:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/12 23:21:11 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/16 01:01:27 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void			ft_putnbr_fd (int n, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putchar_fd(char c, int fd);
 char			*ft_strdup(const char *s1);
-int				get_next_line(int const fd, char **line);
+int				get_next_line(int const fd, char **line, int check);
 void			*ft_memmove(void *dest, const void *source, size_t len);
 char			*ft_strchr(const char *haystack, int needle);
 char			*ft_delete_tab(char *str);

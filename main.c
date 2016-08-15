@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 17:14:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 17:14:42 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/16 01:18:00 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		main(void)
 	list = ft_cpy_env(list);
 	ft_display_list(list);
 	ft_putstr("$>");
-	while (get_next_line(1, &line1) == 1)
+	while (get_next_line(1, &line1, 0) == 1)
 	{
 		line2 = ft_delete_tab(line1);
 		list = ft_choose(line2, list);

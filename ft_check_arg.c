@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 23:44:00 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 23:45:37 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,18 +98,14 @@ int			ft_check_arg2(char *arg, char **options, t_dlist *list, char *boucl)
 	return (1);
 }
 
-int			ft_check_arg(char *arg, t_dlist *list)
+int			ft_check_arg(char *arg, t_dlist *list, int index)
 {
-	int		index;
 	char	*boucle;
 	char	*generated;
 	char	**options;
 
 	boucle = ft_boucle(arg);
 	options = ft_get_options(arg, list, 1);
-	ft_putstr("\n\n HERE THE NEXT TAB TO DISPLAY \n\n");
-	ft_display_tab(options);
-	index = 0;
 	if (arg[index] == '/')
 		return (ft_check_arg2(arg, options, list, boucle));
 	else if (arg[index] != '\0')

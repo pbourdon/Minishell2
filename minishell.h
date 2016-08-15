@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 23:41:06 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/16 01:01:09 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int					ft_check_file(char *path);
 char				*last_dir(char *path);
 void				ft_show_prompt(void);
 void				ft_error(char *arg, int version);
-int					ft_check_arg(char *arg, t_dlist *list);
+int					ft_check_arg(char *arg, t_dlist *list, int index);
 void				ft_run_echo(char *arg, t_dlist *list);
 void				ft_run_setenv(char *arg, t_dlist *list);
 char				*ft_strcup(char *arg);
@@ -128,7 +128,7 @@ char				*ft_strjoin_special(char const *s1, char const *s2);
 char				*t(char const *s1, char const *s2);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strdup(const char *s1);
-int					get_next_line(int const fd, char **line);
+int					get_next_line(int const fd, char **line, int check);
 void				ft_memmove(void *dest, const void *source, size_t len);
 char				*ft_delete_tab(char *str);
 int					ft_display_list(t_dlist *p_list);

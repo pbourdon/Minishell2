@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 17:45:28 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 18:55:55 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 23:46:18 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_dlist		*ft_choose(char *arg, t_dlist *list)
 		ft_delete_list(&list);
 		return (list);
 	}
-	else if (ft_check_arg(arg + index, list) == 0)
+	else if (ft_check_arg(arg + index, list, 0) == 0)
 		ft_error(arg, 1);
 	return (list);
 }
