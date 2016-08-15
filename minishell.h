@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 19:12:40 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 16:06:55 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,7 @@ int					ft_display_list(t_dlist *p_list);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strcpy(char *dst, const char *src);
 void				ft_free_tab(char **tab);
+void				*ft_memalloc(size_t size);
+int					ft_get_size(char *str);
 
 #endif

@@ -8,7 +8,7 @@ char		*ft_delete_tab(char *str)
 
 	index = 0;
 	index2 = 0;
-	tmp = malloc(sizeof(char) * ft_strlen(str) + 1);
+	tmp = ft_memalloc(ft_strlen(str) + 1);
 	while (str[index] != '\0' && (str[index] == ' ' || str[index] == '\t'))
 		index++;
 	while (str[index] != '\0')

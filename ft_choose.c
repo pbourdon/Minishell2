@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 17:45:28 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 19:04:06 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 15:49:20 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,15 @@ t_dlist		*ft_choose(char *arg, t_dlist *list)
 	int			index;
 
 	index = 0;
-	while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\n' || arg[index] == '\r')
+	while (arg[index] == ' ' || arg[index] == '\t' ||
+			arg[index] == '\n' || arg[index] == '\r')
 		index++;
 	if (ft_strncmp("cd", arg, 2) == 0)
 		ft_run_cd(arg, list);
 	else if (ft_strncmp("echo", arg, 4) == 0)
 		ft_run_echo(arg, list);
 	else if (ft_strncmp("setenv $", arg, 8) == 0)
-	{
-		ft_putstr("orange");
 		ft_run_setenv(arg, list);
-	}
 	else if (ft_strncmp("env", arg, 3) == 0)
 		ft_display_list(list);
 	else if (ft_strncmp("unsetenv $", arg, 10) == 0)
@@ -81,13 +79,6 @@ t_dlist		*ft_choose(char *arg, t_dlist *list)
 		return (list);
 	}
 	else if (ft_check_arg(arg + index, list) == 0)
-	{
 		ft_error(arg, 1);
-	}
-	else
-	{
-//		ft_putstr("ici");
-//		ft_error(arg, 1);
-	}
 	return (list);
 }

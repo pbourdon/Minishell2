@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 19:33:44 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 16:36:30 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ char		**ft_get_options(char *arg, t_dlist *list)
 	index = 0;
 	compteur = 0;
 	boucle = ft_boucle(arg);
-	options = malloc(sizeof(char *) * ft_strlen(arg));
-	options = ft_set_zero(ft_strlen(arg), options);
-	options[0] = malloc(sizeof(char *) * ft_strlen(boucle) + 1);
+	options = malloc(sizeof(char *) * ft_get_size(arg));
+	options = ft_set_zero(ft_get_size(arg), options);
+	options[0] = ft_memalloc(ft_strlen(boucle) + 1);
 	while (boucle[index] != '\0')
 	{
 		options[0][temp] = boucle[index];
@@ -76,7 +76,7 @@ char		**ft_get_options(char *arg, t_dlist *list)
 	{
 		if (arg[index] == '-')
 		{
-			options[x] = malloc(sizeof(char) * ft_strlen(arg) + 1);
+			options[x] = ft_memalloc(ft_strlen(arg) + 1);
 			while (arg[index] != '\0' && arg[index] != ' ' && arg[index] != '\t' && arg[index] != '\n')
 			{
 				options[x][compteur] = arg[index];
@@ -87,9 +87,9 @@ char		**ft_get_options(char *arg, t_dlist *list)
 			compteur = 0;
 			x++;
 		} 
-		else if (arg[index] != '\0' && arg[index] != ' ')
+		if (index < ft_strlen(arg) && arg[index] != '\0' && arg[index] != ' ')
 		{
-			options[x] = malloc(sizeof(char) * ft_strlen(arg) + ft_strlen(home(list) + 1));
+			options[x] = ft_memalloc(ft_strlen(arg) + ft_strlen(home(list) + 1));
 			while (arg[index] != '\0' && arg[index] != ' ')
 			{
 				if (arg[index] == '~')

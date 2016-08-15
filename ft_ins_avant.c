@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 01:03:44 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 16:52:55 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 15:22:23 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_dlist		*ins_avant(t_dlist *liste, char *data, int pos)
 				n = malloc(sizeof(*n));
 				if (n != NULL)
 				{
-					n->data = data;
+					n->data = ft_strdup(data);
 					courant->p_next->p_prev = n;
 					courant->p_prev->p_next = n;
 					n->p_prev = courant->p_prev;

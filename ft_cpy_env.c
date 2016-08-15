@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 19:33:48 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/13 03:26:47 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 15:18:23 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 extern char		**environ;
 
-t_dlist		*ft_cpy_env(t_dlist *list)
+t_dlist			*ft_cpy_env(t_dlist *list)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	while (environ[i])
 	{
-	//	if (i == 0)
-	//	{
-	//		list = dlist_append(list, environ[i]);
-	//		i++;
-	//	}
 		list = ft_add_data(list, environ[i]);
 		i++;
 	}

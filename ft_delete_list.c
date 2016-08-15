@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 16:52:59 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 15:19:09 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		ft_delete_list(t_dlist **p_list)
 		{
 			p_del = p_temp;
 			p_temp = p_temp->p_next;
-		//	free(p_del->data);
+			free(p_del->data);
 			free(p_del);
 		}
 		free(*p_list);
