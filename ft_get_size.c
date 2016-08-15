@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 15:59:31 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 16:46:56 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 16:58:22 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int		ft_get_size(char *str)
 	while (str[index] != '\0')
 	{
 		if ((str[index] == ' ' || str[index] == '\t' || str[index] == '\n') && (
-			str[index - 1] != ' ' || str[index - 1] != '\t' || str[index - 1] != '\n'))
+			str[index - 1] != ' ' || str[index - 1] != '\t' || str[index - 1]
+			!= '\n'))
 			compteur++;
 		index++;
 	}

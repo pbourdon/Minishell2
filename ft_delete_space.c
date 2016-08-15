@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 19:51:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 16:32:10 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 16:58:01 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ char		*ft_delete_space(char *arg)
 	index2 = 0;
 	str = malloc(sizeof(char) * ft_strlen(arg));
 	index = 3;
-	if (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\r' || arg[index] == '\n')
-	{
-		while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\r' || arg[index] == '\n')
-			index++;
-	}
+	while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\r' ||
+		arg[index] == '\n')
+		index++;
 	while (arg[index] != '\0')
 	{
 		str[index2] = arg[index];

@@ -6,12 +6,11 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 16:47:53 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 17:29:31 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
 
 char		*ft_boucle(char *arg)
 {
@@ -42,7 +41,7 @@ char		*ft_boucle(char *arg)
 
 char		**ft_get_options(char *arg, t_dlist *list)
 {
-	char	**options;
+	char	**option;
 	int		compteur;
 	int		index;
 	int		x;
@@ -56,64 +55,64 @@ char		**ft_get_options(char *arg, t_dlist *list)
 	index = 0;
 	compteur = 0;
 	boucle = ft_boucle(arg);
-	options = malloc(sizeof(char *) * ft_get_size(arg));
-	options = ft_set_zero(ft_get_size(arg), options);
-	options[0] = ft_memalloc(ft_strlen(boucle) + 1);
+	option = malloc(sizeof(char *) * ft_get_size(arg));
+	option = ft_set_zero(ft_get_size(arg), option);
+	option[0] = ft_memalloc(ft_strlen(boucle) + 1);
 	while (boucle[index] != '\0')
 	{
-		options[0][temp] = boucle[index];
+		option[0][temp] = boucle[index];
 		index++;
 		temp++;
 	}
-	options[0][temp] = '\0';
+	option[0][temp] = '\0';
 	free(boucle);
-	index = ft_strlen(options[0]);
-	while (arg[index] != '\0' && (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\n'))
-	{
+	index = ft_strlen(option[0]);
+	while (arg[index] != '\0' && (arg[index] == ' ' || arg[index] == '\t'
+		|| arg[index] == '\n'))
 		index++;
-	}
 	while (arg[index] != '\0')
 	{
 		if (arg[index] == '-')
 		{
-			options[x] = ft_memalloc(ft_strlen(arg) + 1);
-			while (arg[index] != '\0' && arg[index] != ' ' && arg[index] != '\t' && arg[index] != '\n')
+			option[x] = ft_memalloc(ft_strlen(arg) + 1);
+			while (arg[index] != '\0' && arg[index] != ' ' &&
+				arg[index] != '\t' && arg[index] != '\n')
 			{
-				options[x][compteur] = arg[index];
+				option[x][compteur] = arg[index];
 				compteur++;
 				index++;
 			}
-			options[x][compteur] = '\0';
+			option[x][compteur] = '\0';
 			compteur = 0;
 			x++;
-		} 
+		}
 		if (index < ft_strlen(arg) && arg[index] != '\0' && arg[index] != ' ')
 		{
-			options[x] = ft_memalloc(ft_strlen(arg) + ft_strlen(home(list) + 1));
+			option[x] = ft_memalloc(ft_strlen(arg) + ft_strlen(home(list) + 1));
 			while (arg[index] != '\0' && arg[index] != ' ')
 			{
 				if (arg[index] == '~')
 				{
 					while (home(list)[index4] != '\0')
 					{
-						options[x][compteur] = home(list)[index4];
+						option[x][compteur] = home(list)[index4];
 						index4++;
 						compteur++;
 					}
 					index++;
 				}
-				options[x][compteur] = arg[index];
+				option[x][compteur] = arg[index];
 				compteur++;
 				index++;
 			}
-			options[x][compteur] = '\0';
+			option[x][compteur] = '\0';
 			compteur = 0;
 			x++;
 		}
 		index++;
 	}
-	options[x] = NULL;
-	return (options);
+	option[x] = NULL;
+	return (option);
 }
 
 char		*ft_generate_path(char *arg, t_dlist *list)
@@ -133,7 +132,8 @@ char		*ft_generate_path(char *arg, t_dlist *list)
 		compteur--;
 		free(strjoin);
 	}
-	ft_putstr("zsh: command not found (or minishell did not find the correct PATH. Check your PATH env variable)\n");
+	ft_putstr("zsh: command not found (or minishell did not find the correct");
+	ft_putstr(" PATH. Check your PATH env variable)\n");
 	return (NULL);
 }
 

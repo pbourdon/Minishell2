@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/13 01:06:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 16:41:39 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 16:56:11 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,14 @@ t_node		*ft_fuck_norm3(t_dlist *list, t_node *p_temp)
 	p_temp->p_prev->p_next = p_temp->p_next;
 	return (p_temp);
 }
-t_dlist		*ft_del_ele_list(t_dlist *list, size_t position)
-{
-	t_node		*p_temp;
-	size_t		i;
 
-	i = 1;
-	p_temp = list->p_head;
+t_dlist		*ft_del_ele_list(t_dlist *list, size_t p, t_node *p_temp, size_t i)
+{
 	if (list != NULL)
 	{
-		while (p_temp != NULL && i <= position)
+		while (p_temp != NULL && i <= p)
 		{
-			if (position == i)
+			if (p == i)
 			{
 				if (p_temp->p_next == NULL)
 					list = ft_fuck_norm(list, p_temp);

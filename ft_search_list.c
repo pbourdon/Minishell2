@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 23:04:57 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 15:17:16 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 17:12:55 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,6 @@ int		ft_search_list(t_dlist *liste, char *data)
 	while (courant != NULL)
 	{
 		i++;
-/*
-			ft_putchar(courant->data[ft_strlen(data) - 1]);
-			ft_putstr(" of ");
-			ft_putstr(courant->data);
-			ft_putstr(" VS ");
-			ft_putchar(data[ft_strlen(data)]);
-			ft_putstr(" of ");
-			ft_putstr(data);
-			ft_putchar('\n');
-			*/
 		if (ft_strncmp(data, courant->data, ft_strlen(data)) == 0)
 		{
 			return (i);

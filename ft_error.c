@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 19:23:35 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/07/18 19:36:55 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 16:58:08 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_putchar_error(char c)
 {
-	write (2, &c, 1);
+	write(2, &c, 1);
 }
 
 void		ft_putstr_error(char *str)

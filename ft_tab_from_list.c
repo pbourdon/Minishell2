@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/12 22:34:04 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 18:59:23 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 17:14:01 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 char		**ft_tab_from_list(t_dlist *list)
 {
 	t_node		*p_temp;
-	char	**env;
-	int		c;
-
+	char		**env;
+	int			c;
 
 	p_temp = list->p_head;
 	env = (char **)malloc((ft_list_size(list->p_head) + 1) * sizeof(char *));

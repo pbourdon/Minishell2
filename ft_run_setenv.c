@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 01:16:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 16:51:30 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 17:13:38 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char			*ft_strcup(char *arg)
 	index2 = 0;
 	index = 0;
 	str = malloc(sizeof(char) * ft_strlen(arg));
-	while (arg[index2] != '\0' && arg[index2] != ' ' && arg[index2] != '\t' && arg[index2] != '\n' && arg[index2] != '=')
+	while (arg[index2] != '\0' && arg[index2] != ' ' && arg[index2] != '\t'
+		&& arg[index2] != '\n' && arg[index2] != '=')
 	{
 		str[index] = arg[index2];
 		index2++;
@@ -30,6 +31,7 @@ char			*ft_strcup(char *arg)
 	str[index] = '\0';
 	return (str);
 }
+
 t_dlist			*modify_element(t_dlist *list, char *arg, int index)
 {
 	int		pos;
@@ -44,11 +46,11 @@ t_dlist			*modify_element(t_dlist *list, char *arg, int index)
 	if (pos == 0)
 		return (list);
 	new = ft_strdup(arg + index + ft_strlen(tmp));
-	list = ft_del_ele_list(list, pos);
+	list = ft_del_ele_list(list, pos, list->p_head, 1);
 	tmp3 = ft_strjoin(tmp2, new + 1);
 	free(new);
 	ft_display_list(list);
-	list = ins_avant(list, tmp3, pos);
+	list = ins_avant(list, tmp3, list->p_head, pos);
 	free(tmp);
 	free(tmp2);
 	free(tmp3);

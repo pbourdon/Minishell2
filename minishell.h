@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 16:06:55 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 17:00:04 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ t_dlist				*dlist_new(t_dlist *p_new);
 t_dlist				*ft_cpy_env(t_dlist *list);
 pid_t				create_process(void);
 int					ft_search_list(t_dlist *liste, char *data);
-t_dlist				*supp(t_dlist *liste, size_t pos);
-t_dlist				*ins_avant(t_dlist *liste, char *data, int pos);
+t_dlist				*ins_avant(t_dlist *liste, char *data, t_node *courant,
+					int pos);
 char				*get_ele(t_dlist *liste, int pos);
 int					ft_run_exe(char *path, char **options, t_dlist *list);
 char				*ft_get_path(char *arg);
@@ -97,7 +97,8 @@ int					ft_get_total_path(t_dlist *list);
 void				ft_delete_list(t_dlist **p_list);
 void				ft_free(char **options);
 char				**ft_set_zero(int index, char **options);
-t_dlist				*ft_del_ele_list(t_dlist *list, size_t position);
+t_dlist				*ft_del_ele_list(t_dlist *list, size_t position, t_node
+					*p_temp, size_t i);
 
 void				ft_display_tab(char **arg);
 char				*ft_strcut(char *str, int index);

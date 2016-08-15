@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/26 16:26:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 19:41:58 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 17:06:11 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_reset(char *str)
 	}
 	return (str);
 }
+
 char	*ft_get_auto_path(int x, t_dlist *list)
 {
 	char	*temp;
@@ -35,7 +36,8 @@ char	*ft_get_auto_path(int x, t_dlist *list)
 	drop = 0;
 	index = 0;
 	compteur = 0;
-	retur = malloc(sizeof(char) * ft_strlen(get_ele(list, ft_search_list(list, "PATH"))) + 5);
+	retur = malloc(sizeof(char) * ft_strlen(get_ele(list,
+		ft_search_list(list, "PATH"))) + 5);
 	temp = get_ele(list, ft_search_list(list, "PATH=")) + 5;
 	while (temp[index] != '\0')
 	{

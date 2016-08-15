@@ -6,17 +6,16 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 01:03:44 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 15:22:23 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 17:02:59 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_dlist		*ins_avant(t_dlist *liste, char *data, int pos)
+t_dlist		*ins_avant(t_dlist *liste, char *data, t_node *courant, int pos)
 {
 	int			i;
 	t_node		*n;
-	t_node		*courant;
 
 	courant = liste->p_head;
 	i = 1;

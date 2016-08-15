@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 19:28:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/11 15:53:44 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 16:58:38 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char		*ft_get_path(char *arg)
 	index = 3;
 	index2 = 0;
 	tmp = malloc(sizeof(char) * ft_strlen(arg));
-	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\r' || arg[index] == '\n')
+	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\r' ||
+		arg[index] == '\n')
 		index++;
 	while (arg[index] != '\0' && arg[index] != ' ')
 	{

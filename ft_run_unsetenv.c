@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 02:13:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 19:04:08 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 17:02:18 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_dlist			*ft_run_unsetenv(char *arg, t_dlist *list)
 		free(tmp);
 		return (list);
 	}
-	list = supp(list, pos);
+	list = ft_del_ele_list(list, pos, list->p_head, 1);
 	free(tmp);
 	return (list);
 }

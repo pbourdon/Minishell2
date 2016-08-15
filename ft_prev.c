@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 19:47:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/14 18:28:53 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 17:00:53 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char		*prev(t_dlist *list)
 	else
 	{
 		tmp3 = ft_strjoin("OLDPWD", home(list));
-		ins_avant(list, tmp3, 0);
+		ins_avant(list, tmp3, list->p_head, 0);
 		free(tmp3);
 		return (home(list));
 	}
