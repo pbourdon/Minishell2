@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 19:34:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 20:36:45 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 23:42:19 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,45 +35,46 @@ char		**ft_get_options1(char *arg, char **options)
 	return (options);
 }
 
-char		**ft_get_options2(char *arg, char **options, int index, int x)
+char		**ft_get_options2(char *arg, char **options, int *index, int *x)
 {
 	int		compteur;
 
 	compteur = 0;
-	options[x] = ft_memalloc(ft_strlen(arg) + 1);
-	while (arg[index] != '\0' && arg[index] != ' ' && arg[index] != '\t' &&
-			arg[index] != '\n')
+	options[*x] = ft_memalloc(ft_strlen(arg) + 1);
+	while (arg[*index] != '\0' && arg[*index] != ' ' && arg[*index] != '\t' &&
+			arg[*index] != '\n')
 	{
-		options[x][compteur] = arg[index];
+		options[*x][compteur] = arg[*index];
 		compteur++;
-		index++;
+		*index = *index + 1;
 	}
-	options[x][compteur] = '\0';
-	x++;
+	options[*x][compteur] = '\0';
+	*x = *x + 1;
 	return (options);
 }
 
-char		**ft_get_options3(char *home, int x, int *compteur, char **options)
+char		*ft_get_options3(char *home, int index, int compteur, char *options)
 {
-	int		index4;
-
-	index4 = 0;
-	while (home[index4] != '\0')
+	while (home[index] != '\0')
 	{
-		options[x][*compteur] = home[index4];
-		index4++;
-		*compteur = *compteur + 1;
+		options[compteur] = home[index];
+		index = index + 1;
+		compteur = compteur + 1;
 	}
+	options[compteur] = '\0';
 	return (options);
 }
 
-char		*ft_get_options4(int *index, int *compteur, char *options, char *arg)
+char		*ft_get_options4(int *index, int compteur, char *options,
+		char *arg)
 {
+	compteur = 0;
 	while (arg[*index] != '\0' && arg[*index] != ' ')
 	{
-		options[*compteur] = arg[*index];
+		options[compteur] = arg[*index];
 		*index = *index + 1;
-		*compteur = *compteur + 1;
+		compteur = compteur + 1;
 	}
+	options[compteur] = '\0';
 	return (options);
 }

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 20:36:50 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 23:44:00 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,26 @@ char		*ft_boucle(char *arg)
 	return (process);
 }
 
-char		**ft_get_options(char *arg, t_dlist *list, int compteur, int x)
+char		**ft_get_options(char *arg, t_dlist *list, int x)
 {
 	char	**option;
 	int		index;
 
 	option = ft_get_options1(arg, option);
 	index = ft_strlen(option[0]);
-	while (arg[index] != '\0')
+	while (arg[index++] != '\0')
 	{
 		if (arg[index] == '-')
-			option = ft_get_options2(arg, option, index, x++);
+			option = ft_get_options2(arg, option, &index, &x);
 		if (index < ft_strlen(arg) && arg[index] != '\0' && arg[index] != ' ')
 		{
 			option[x] = ft_memalloc(ft_strlen(arg) + ft_strlen(home(list) + 1));
-			while (arg[index] != '\0' && arg[index] != ' ')
-			{
-				if (arg[index] == '~' && index++ > 0)
-					option = ft_get_options3(home(list), x, &compteur, option);
-				option[x] = ft_get_options4(&index, &compteur, option[x], arg);
-			}
-			option[x][compteur] = '\0';
-			compteur = 0;
+			if (arg[index] == '~')
+				option[x] = ft_get_options3(home(list), 0, 0, option[x]);
+			else
+				option[x] = ft_get_options4(&index, 0, option[x], arg);
 			x++;
 		}
-		index++;
 	}
 	option[x] = NULL;
 	return (option);
@@ -111,7 +106,9 @@ int			ft_check_arg(char *arg, t_dlist *list)
 	char	**options;
 
 	boucle = ft_boucle(arg);
-	options = ft_get_options(arg, list, 0, 1);
+	options = ft_get_options(arg, list, 1);
+	ft_putstr("\n\n HERE THE NEXT TAB TO DISPLAY \n\n");
+	ft_display_tab(options);
 	index = 0;
 	if (arg[index] == '/')
 		return (ft_check_arg2(arg, options, list, boucle));
