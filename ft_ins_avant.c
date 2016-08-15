@@ -6,18 +6,33 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 01:03:44 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 17:02:59 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 18:47:27 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+t_node		*fuck42(t_node *courant, char *data)
+{
+	t_node		*n;
+
+	n = malloc(sizeof(*n));
+	if (n != NULL)
+	{
+		n->data = ft_strdup(data);
+		courant->p_next->p_prev = n;
+		courant->p_prev->p_next = n;
+		n->p_prev = courant->p_prev;
+		n->p_next = courant;
+	}
+	return (courant);
+}
 
 t_dlist		*ins_avant(t_dlist *liste, char *data, t_node *courant, int pos)
 {
 	int			i;
 	t_node		*n;
 
-	courant = liste->p_head;
 	i = 1;
 	while (courant != NULL && i <= pos)
 	{
@@ -28,17 +43,7 @@ t_dlist		*ins_avant(t_dlist *liste, char *data, t_node *courant, int pos)
 			else if (courant->p_prev == NULL)
 				liste = dlist_prepend(liste, data);
 			else
-			{
-				n = malloc(sizeof(*n));
-				if (n != NULL)
-				{
-					n->data = ft_strdup(data);
-					courant->p_next->p_prev = n;
-					courant->p_prev->p_next = n;
-					n->p_prev = courant->p_prev;
-					n->p_next = courant;
-				}
-			}
+				courant = fuck42(courant, data);
 		}
 		else
 			courant = courant->p_next;

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 17:29:31 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/15 18:35:12 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ char		*ft_generate_path(char *arg, t_dlist *list)
 	compteur = ft_get_total_path(list) + 1;
 	while (compteur > 0)
 	{
-		auto_path = ft_get_auto_path(compteur, list);
+		auto_path = ft_get_auto_path(compteur, list, 0, 0);
 		strjoin = ft_strjoin(auto_path, arg);
 		free(auto_path);
 		if (access(strjoin, X_OK) == 0)
