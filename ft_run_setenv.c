@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 01:16:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 17:13:38 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/16 19:52:51 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ char			*ft_strcup(char *arg)
 		index2++;
 		index++;
 	}
+	if (arg[index2] == '=')
+		str[index] = arg[index2];
+	index++;
 	str[index] = '\0';
 	return (str);
 }
@@ -37,22 +40,27 @@ t_dlist			*modify_element(t_dlist *list, char *arg, int index)
 	int		pos;
 	char	*new;
 	char	*tmp;
-	char	*tmp2;
 	char	*tmp3;
 
 	tmp = ft_strcup(arg + index);
-	tmp2 = ft_strjoin(tmp, "=");
 	pos = ft_search_list(list, tmp);
-	if (pos == 0)
-		return (list);
 	new = ft_strdup(arg + index + ft_strlen(tmp));
-	list = ft_del_ele_list(list, pos, list->p_head, 1);
-	tmp3 = ft_strjoin(tmp2, new + 1);
+	tmp3 = ft_strjoin(tmp, new);
 	free(new);
-	ft_display_list(list);
-	list = ins_avant(list, tmp3, list->p_head, pos);
+	if (pos != 0)
+	{
+		list = ft_del_ele_list(list, pos, list->p_head, 1);
+		if (pos >= ft_list_size(list->p_head))
+			ft_add_data(list, tmp3);
+		else
+			list = ins_avant(list, tmp3, list->p_head, pos);
+	}
+	else
+	{
+		pos = ft_list_size(list->p_head) + 1;
+		list = ft_add_data(list, tmp3);
+	}
 	free(tmp);
-	free(tmp2);
 	free(tmp3);
 	return (list);
 }
@@ -62,7 +70,6 @@ void			ft_run_setenv(char *arg, t_dlist *list)
 	int			index;
 
 	index = 8;
-	ft_putstr("WELCOME IN RUN SETENV");
 	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\n' ||
 		arg[index] == '\r')
 		index++;

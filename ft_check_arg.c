@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 23:45:37 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/16 18:14:01 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ char		*ft_boucle(char *arg)
 char		**ft_get_options(char *arg, t_dlist *list, int x)
 {
 	char	**option;
-	int		index;
+	size_t	index;
 
+	option = NULL;
 	option = ft_get_options1(arg, option);
 	index = ft_strlen(option[0]);
 	while (arg[index++] != '\0')

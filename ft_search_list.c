@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 23:04:57 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 17:12:55 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/16 19:37:08 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ int		ft_search_list(t_dlist *liste, char *data)
 	{
 		i++;
 		if (ft_strncmp(data, courant->data, ft_strlen(data)) == 0)
-		{
 			return (i);
-		}
 		courant = courant->p_next;
 	}
 	return (0);

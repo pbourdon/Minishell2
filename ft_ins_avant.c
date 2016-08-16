@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 01:03:44 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 18:48:27 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/16 18:10:58 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ t_node		*fuck42(t_node *courant, char *data)
 t_dlist		*ins_avant(t_dlist *liste, char *data, t_node *courant, int pos)
 {
 	int			i;
-	t_node		*n;
 
 	i = 1;
 	while (courant != NULL && i <= pos)

@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/15 19:37:35 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/16 18:12:05 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = minishell
 
 CC = @gcc
 
-CFLAGS = ## -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 LDFLAGS = -L $(LIBPATH) -lft
 
