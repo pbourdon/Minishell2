@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 01:16:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/16 19:52:51 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/17 17:42:55 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ char			*ft_strcup(char *arg)
 	return (str);
 }
 
-t_dlist			*modify_element(t_dlist *list, char *arg, int index)
+t_dlist			*modify_element(t_dlist *list, char *arg, int index, int pos)
 {
-	int		pos;
 	char	*new;
 	char	*tmp;
 	char	*tmp3;
@@ -73,5 +72,5 @@ void			ft_run_setenv(char *arg, t_dlist *list)
 	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\n' ||
 		arg[index] == '\r')
 		index++;
-	list = modify_element(list, arg, index);
+	list = modify_element(list, arg, index, 0);
 }

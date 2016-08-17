@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/17 14:45:12 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/17 17:37:24 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,15 @@ int					ft_check_file(char *path);
 char				*last_dir(char *path);
 void				ft_show_prompt(void);
 void				ft_error(char *arg, int version);
-int					ft_check_arg(char *arg, t_dlist *list, int index);
+int					ft_check_arg(char *arg, t_dlist *list, int index,
+					char *boucle);
 void				ft_run_echo(char *arg, t_dlist *list);
 void				ft_run_setenv(char *arg, t_dlist *list);
 char				*ft_strcup(char *arg);
 t_dlist				*ft_run_unsetenv(char *arg, t_dlist *list);
 char				*ft_get_path(char *arg);
-t_dlist				*ft_exchange_element(t_dlist *list);
+t_dlist				*ft_exchange_element(t_dlist *list, char *test1,
+					char *test4);
 char				*ft_last_dir(char *path);
 char				*home(t_dlist *list);
 char				*prev(t_dlist *list);
@@ -108,6 +110,8 @@ char				*ft_get_options3(char *home, int index, int compteur,
 char				*ft_get_options4(size_t *index, int compteur, char *options,
 					char *arg);
 t_dlist				*ft_cpy_env2(t_dlist *list);
+char				**ft_error_home(void);
+int					ft_error_home2(char *tmp2);
 
 void				ft_display_tab(char **arg);
 char				*ft_strcut(char *str, int index);

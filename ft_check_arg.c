@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/17 16:44:11 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/17 17:35:41 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,10 @@ char		*ft_boucle(char *arg)
 	return (process);
 }
 
-char		**ft_get_options(char *arg, t_dlist *list, int x)
+char		**ft_get_options(char *arg, t_dlist *list, int x, char **option)
 {
-	char	**option;
 	size_t	index;
 
-	option = NULL;
 	option = ft_get_options1(arg, option);
 	index = ft_strlen(option[0]);
 	while (arg[index++] != '\0')
@@ -54,20 +52,13 @@ char		**ft_get_options(char *arg, t_dlist *list, int x)
 		if (index < ft_strlen(arg) && arg[index] != '\0' && arg[index] != ' ')
 		{
 			if (home(list) != NULL)
-				option[x] = ft_memalloc(ft_strlen(arg) + ft_strlen(home(list) + 1));
+				option[x] = ft_memalloc(ft_strlen(arg) + ft_strlen(home(list)));
 			else
 				option[x] = ft_memalloc(ft_strlen(arg) + 1);
-			if (arg[index] == '~')
-			{
-				if (home(list) != NULL)
-					option[x] = ft_get_options3(home(list), 0, 0, option[x]);
-				else
-				{
-					ft_putstr("A problem just happened, you need to add the ");
-					ft_putstr("home environment variable to perform this operation\n");
-					return (NULL);
-				}
-			}
+			if (arg[index] == '~' && home(list) != NULL)
+				option[x] = ft_get_options3(home(list), 0, 0, option[x]);
+			else if (arg[index] == '~' && home(list) == NULL)
+				return (ft_error_home());
 			else
 				option[x] = ft_get_options4(&index, 0, option[x], arg);
 			x++;
@@ -112,15 +103,14 @@ int			ft_check_arg2(char *arg, char **options, t_dlist *list, char *boucl)
 	return (1);
 }
 
-int			ft_check_arg(char *arg, t_dlist *list, int index)
+int			ft_check_arg(char *arg, t_dlist *list, int index, char *boucle)
 {
-	char	*boucle;
 	char	*generated;
 	char	**options;
 
-	boucle = ft_boucle(arg);
-	options = ft_get_options(arg, list, 1);
-	if (ft_get_options(arg, list, 1) == NULL)
+	options = NULL;
+	options = ft_get_options(arg, list, 1, options);
+	if (options == NULL)
 		return (1);
 	if (arg[index] == '/')
 		return (ft_check_arg2(arg, options, list, boucle));

@@ -6,20 +6,35 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 19:37:39 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/17 15:03:18 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/17 17:21:54 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_dlist		*ft_exchange_element(t_dlist *line)
+t_dlist		*ft_exchange_element2(t_dlist *line, char *oldpwd)
+{
+	int		pos;
+	char	*test2;
+
+	pos = ft_search_list(line, "OLDPWD=");
+	line = ft_del_ele_list(line, pos, line->p_head, 1);
+	test2 = ft_strjoin("OLDPWD=", oldpwd + 4);
+	if (pos == 0)
+		line = ft_add_data(line, test2);
+	else
+		line = ins_avant(line, test2, line->p_head, pos);
+	free(test2);
+	free(oldpwd);
+	return (line);
+}
+
+t_dlist		*ft_exchange_element(t_dlist *line, char *test1,
+	char *test4)
 {
 	int		pos;
 	char	*oldpwd;
 	char	*new_pwd;
-	char	*test1;
-	char	*test2;
-	char	*test4;
 
 	pos = ft_search_list(line, "PWD=");
 	if (pos != 0 && ft_strlen(get_ele(line, pos)) > 4)
@@ -38,15 +53,6 @@ t_dlist		*ft_exchange_element(t_dlist *line)
 	else
 		line = ins_avant(line, test1, line->p_head, pos);
 	free(test1);
-	pos = ft_search_list(line, "OLDPWD=");
-	line = ft_del_ele_list(line, pos, line->p_head, 1);
-	test2 = ft_strjoin("OLDPWD=", oldpwd + 4);
-	if (pos == 0)
-		line = ft_add_data(line, test2);
-	else
-		line = ins_avant(line, test2, line->p_head, pos);
-	free(test2);
-	free(oldpwd);
 	free(new_pwd);
-	return (line);
+	return (ft_exchange_element2(line, oldpwd));
 }
