@@ -1,17 +1,13 @@
 
 
 
-Regler le pbme de double free sur setenv (arrive je sais pas comment quand j'ai trifouille en correction)
-Regler le segfault sur envoi de variables d'environnement vides (env -i ./minishell)
-Regler les erreurs d'analyse sur list_search (compare pas assez loin, et s'arrete a la premiere occurence complete, bizarre)
+
 Gerer signaux
-Checker que la suppression d'un ou plusieurs elements de la chaine en pleine utilisation ne provoque pas de crash inattendu
-Gerer les options de env dans le minishell. 
-Modifier unsetenv pour qu'il ne supprime plus la ligne dans la liste mais juste le data apres le =
-Ins avant semble virer l'element dont tu prends la place au lieu d'ajouter juste avant.
-(voir sur les ajout suppression de setenv/unsetenv);
+
 DONE :
 // Gerer le fait d'envoyer une variable vide via setenv
 // Regler l'impossible modification d'une variable situee a la fin de la liste (auss// i au debut ?)
+Regler les erreurs d'analyse sur list_search (compare pas assez loin, et s'arrete a la premiere occurence complete, bizarre)
+Regler le segfault sur envoi de variables d'environnement vides (env -i ./minishell)
 
-
+Regler le pbme de double free sur setenv (arrive je sais pas comment quand j'ai trifouille en correction)
