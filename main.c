@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 17:14:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/16 20:13:26 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/17 16:37:07 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int		main(void)
 
 	list = NULL;
 	list = dlist_new(list);
-	list = ft_cpy_env(list);
-	if (ft_list_size(list->p_head) == 0)
-		list = ft_cpy_env(list);
+//	list = ft_cpy_env(list);
+//	if (ft_list_size(list->p_head) == 0)
+		list = ft_cpy_env2(list);
 	ft_putstr("$>");
 	while (get_next_line(1, &line1, 0) == 1)
 	{

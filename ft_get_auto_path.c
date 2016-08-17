@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/26 16:26:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 18:37:30 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/17 16:42:16 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ char	*ft_get_auto_path(int x, t_dlist *list, int drop, int index)
 		retur = ft_reset(retur, &compteur);
 		index++;
 	}
-	return ("awdawD");
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/16 18:14:01 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/17 16:44:11 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,21 @@ char		**ft_get_options(char *arg, t_dlist *list, int x)
 			option = ft_get_options2(arg, option, &index, &x);
 		if (index < ft_strlen(arg) && arg[index] != '\0' && arg[index] != ' ')
 		{
-			option[x] = ft_memalloc(ft_strlen(arg) + ft_strlen(home(list) + 1));
+			if (home(list) != NULL)
+				option[x] = ft_memalloc(ft_strlen(arg) + ft_strlen(home(list) + 1));
+			else
+				option[x] = ft_memalloc(ft_strlen(arg) + 1);
 			if (arg[index] == '~')
-				option[x] = ft_get_options3(home(list), 0, 0, option[x]);
+			{
+				if (home(list) != NULL)
+					option[x] = ft_get_options3(home(list), 0, 0, option[x]);
+				else
+				{
+					ft_putstr("A problem just happened, you need to add the ");
+					ft_putstr("home environment variable to perform this operation\n");
+					return (NULL);
+				}
+			}
 			else
 				option[x] = ft_get_options4(&index, 0, option[x], arg);
 			x++;
@@ -76,7 +88,8 @@ char		*ft_generate_path(char *arg, t_dlist *list)
 	{
 		auto_path = ft_get_auto_path(compteur, list, 0, 0);
 		strjoin = ft_strjoin(auto_path, arg);
-		free(auto_path);
+		if (auto_path != NULL)
+			free(auto_path);
 		if (access(strjoin, X_OK) == 0)
 			return (strjoin);
 		compteur--;
@@ -107,6 +120,8 @@ int			ft_check_arg(char *arg, t_dlist *list, int index)
 
 	boucle = ft_boucle(arg);
 	options = ft_get_options(arg, list, 1);
+	if (ft_get_options(arg, list, 1) == NULL)
+		return (1);
 	if (arg[index] == '/')
 		return (ft_check_arg2(arg, options, list, boucle));
 	else if (arg[index] != '\0')
