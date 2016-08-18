@@ -6,11 +6,22 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 17:14:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/17 16:47:45 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/18 13:15:24 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	get_first_sigint(void)
+{
+	  write(1, "\n$#>", 4);
+}
+
+void	get_sigint(int signal)
+{
+	write(1, "\r\n##", 2);
+	signal = 3;
+}
 
 int		main(void)
 {

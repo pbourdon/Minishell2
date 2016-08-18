@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 15:43:35 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 17:12:43 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/18 13:16:14 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,25 @@ pid_t		create_process(void)
 		pid = fork();
 	}
 	return (pid);
+}
+
+static void		wait_child(void)
+{
+	int		status;
+
+	signal(SIGINT, get_sigint);
+	wait(&status);
+	if (WIFSIGNALED(status))
+	{
+		if (WTERMSIG(status) == 11)
+			ft_putstr("Segfault !\n");
+		else if (WTERMSIG(status) == 8)
+			ft_putstr("Arithmetic error !\n");
+		else
+			ft_putstr("Killed\n");
+	}
+	else if (WIFSTOPPED(status))
+		ft_putstr("Stopped\n");
 }
 
 void		son_process(char *path, char *arg[], t_dlist *line)
@@ -47,7 +66,7 @@ int			ft_run_exe(char *path, char **options, t_dlist *list)
 		return (0);
 	pid = fork();
 	if (pid > 0)
-		waitpid(pid, 0, 0);
+		wait_child();
 	if (pid == 0)
 	{
 		execve(path, options, ft_tab_from_list(list));
