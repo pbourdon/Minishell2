@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/17 17:35:41 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/18 14:16:03 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ char		*ft_generate_path(char *arg, t_dlist *list)
 	{
 		auto_path = ft_get_auto_path(compteur, list, 0, 0);
 		strjoin = ft_strjoin(auto_path, arg);
+		ft_putstr(" The strjoin is ");
+		ft_putstr(strjoin);
+		ft_putchar('\n');
 		if (auto_path != NULL)
 			free(auto_path);
 		if (access(strjoin, X_OK) == 0)
@@ -116,10 +119,15 @@ int			ft_check_arg(char *arg, t_dlist *list, int index, char *boucle)
 		return (ft_check_arg2(arg, options, list, boucle));
 	else if (arg[index] != '\0')
 	{
-		generated = ft_generate_path(boucle, list);
-		ft_run_exe(generated, options, list);
+		if (boucle[0] != '.')
+		{
+			generated = ft_generate_path(boucle, list);
+			ft_run_exe(generated, options, list);
+			free(generated);
+		}
+		else
+			ft_run_exe(boucle, options, list);
 		ft_free_tab(options);
-		free(generated);
 		free(boucle);
 		return (1);
 	}

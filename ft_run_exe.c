@@ -6,15 +6,15 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 15:43:35 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 13:16:14 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/18 14:56:00 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-pid_t		create_process(void)
+pid_t			create_process(void)
 {
-	pid_t	pid;
+	pid_t		pid;
 
 	pid = -1;
 	while (-1 == (pid = fork()) && errno == EAGAIN)
@@ -26,7 +26,7 @@ pid_t		create_process(void)
 
 static void		wait_child(void)
 {
-	int		status;
+	int			status;
 
 	signal(SIGINT, get_sigint);
 	wait(&status);
@@ -43,24 +43,25 @@ static void		wait_child(void)
 		ft_putstr("Stopped\n");
 }
 
-void		son_process(char *path, char *arg[], t_dlist *line)
+void			son_process(char *path, char *arg[], t_dlist *line)
 {
-	int		test;
+	int			test;
 
 	if (ft_check_file(path))
 	{
 		test = execve(path, arg, ft_tab_from_list(line));
 		if (test == -1)
 		{
-			perror("execv.");
+			ft_putstr_fd(" error on performing this operation \n", 2);
+			ft_putstr(" error on performing this operation \n");
 			exit(EXIT_FAILURE);
 		}
 	}
 }
 
-int			ft_run_exe(char *path, char **options, t_dlist *list)
+int				ft_run_exe(char *path, char **options, t_dlist *list)
 {
-	pid_t	pid;
+	pid_t		pid;
 
 	if (path == NULL)
 		return (0);
