@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 13:14:52 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/18 15:03:50 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ t_dlist				*ft_cpy_env2(t_dlist *list);
 char				**ft_error_home(void);
 int					ft_error_home2(char *tmp2);
 void				get_sigint(int signal);
+int					ft_check_arg3(char *boucle, t_dlist *list, char **options);
+char				*ft_generate_path(char *arg, t_dlist *list);
 
 void				ft_display_tab(char **arg);
 char				*ft_strcut(char *str, int index);

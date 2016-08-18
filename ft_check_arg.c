@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 14:16:03 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/18 15:03:32 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ int			ft_check_arg2(char *arg, char **options, t_dlist *list, char *boucl)
 
 int			ft_check_arg(char *arg, t_dlist *list, int index, char *boucle)
 {
-	char	*generated;
 	char	**options;
 
 	options = NULL;
@@ -118,19 +117,7 @@ int			ft_check_arg(char *arg, t_dlist *list, int index, char *boucle)
 	if (arg[index] == '/')
 		return (ft_check_arg2(arg, options, list, boucle));
 	else if (arg[index] != '\0')
-	{
-		if (boucle[0] != '.')
-		{
-			generated = ft_generate_path(boucle, list);
-			ft_run_exe(generated, options, list);
-			free(generated);
-		}
-		else
-			ft_run_exe(boucle, options, list);
-		ft_free_tab(options);
-		free(boucle);
-		return (1);
-	}
+		return (ft_check_arg3(boucle, list, options));
 	else
 	{
 		ft_free_tab(options);
