@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 17:14:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 14:56:28 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/22 16:17:09 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ int		main(void)
 		free(line2);
 		free(line1);
 		if (list == NULL)
-		{
 			return (0);
-		}
 		ft_show_prompt();
 	}
 	return (0);

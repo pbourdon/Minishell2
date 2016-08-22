@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 14:59:09 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 15:03:54 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/18 15:20:00 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			ft_check_arg3(char *boucle, t_dlist *list, char **options)
 {
-	char *generated;
+	char	*generated;
 
 	if (boucle[0] != '.')
 	{
@@ -27,5 +27,4 @@ int			ft_check_arg3(char *boucle, t_dlist *list, char **options)
 	ft_free_tab(options);
 	free(boucle);
 	return (1);
-
 }

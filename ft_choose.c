@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 17:45:28 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 14:18:01 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/22 16:28:22 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ t_dlist		*ft_choose(char *arg, t_dlist *list)
 		ft_run_cd(arg, list, NULL, NULL);
 	else if (ft_strncmp("echo", arg, 4) == 0)
 		ft_run_echo(arg, list);
-	else if (ft_strncmp("setenv $", arg, 8) == 0)
+	else if (ft_strncmp("setenv", arg, 6) == 0)
 		ft_run_setenv(arg, list);
 	else if (ft_strncmp("env", arg, 3) == 0)
 		ft_display_list(list);
-	else if (ft_strncmp("unsetenv $", arg, 10) == 0)
-		ft_run_unsetenv(arg + 10, list);
+	else if (ft_strncmp("unsetenv", arg, 8) == 0)
+		ft_run_unsetenv(arg + 8, list);
 	else if (ft_strncmp("exit", arg, 4) == 0 && ft_strlen(arg) == 4)
 	{
 		ft_delete_list(&list);

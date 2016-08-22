@@ -1,9 +1,4 @@
 
-Gerer le lancement de plusieurs minishells imbriques les uns dans les autres
-Gerer le double free apparu lorsque lancement de minishell via chemin ~/Minishell/minishell
-
-Kill l'un des minishells au milieu de l'imbrication
-
 
 DONE :
 // Gerer le fait d'envoyer une variable vide via setenv
@@ -13,4 +8,9 @@ Regler le segfault sur envoi de variables d'environnement vides (env -i ./minish
 
 Regler le pbme de double free sur setenv (arrive je sais pas comment quand j'ai trifouille en correction)
 Gerer signaux
+Gerer le lancement de plusieurs minishells imbriques les uns dans les autres
+Gerer le double free apparu lorsque lancement de minishell via chemin ~/Minishell/minishell
 
+Gerer setenv POO ALPHA
+Gerer ~/path/of/your/choice
+Kill l'un des minishells au milieu de l'imbrication

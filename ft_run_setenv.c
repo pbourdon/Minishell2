@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 01:16:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/17 17:42:55 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/22 16:29:24 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char			*ft_strcup(char *arg)
 
 	index2 = 0;
 	index = 0;
-	str = malloc(sizeof(char) * ft_strlen(arg));
+	str = malloc(sizeof(char) * ft_strlen(arg) + 1);
 	while (arg[index2] != '\0' && arg[index2] != ' ' && arg[index2] != '\t'
 		&& arg[index2] != '\n' && arg[index2] != '=')
 	{
@@ -28,8 +28,7 @@ char			*ft_strcup(char *arg)
 		index2++;
 		index++;
 	}
-	if (arg[index2] == '=')
-		str[index] = arg[index2];
+	str[index] = '=';
 	index++;
 	str[index] = '\0';
 	return (str);
@@ -68,7 +67,7 @@ void			ft_run_setenv(char *arg, t_dlist *list)
 {
 	int			index;
 
-	index = 8;
+	index = 6;
 	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\n' ||
 		arg[index] == '\r')
 		index++;

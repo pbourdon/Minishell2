@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/29 21:35:05 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/15 15:45:53 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/22 16:05:17 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char		*new;
 
 	s1 = (s1 == NULL) ? "" : s1;
-	s2 = (s2 == NULL) ? "" : s2		;
+	s2 = (s2 == NULL) ? "" : s2;
 	if (s1 && s2)
 	{
 		i = ft_strlen(s1) + ft_strlen(s2);
