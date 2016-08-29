@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 19:34:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/17 17:03:53 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/29 15:41:05 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ char		**ft_get_options1(char *arg, char **options)
 	index = 0;
 	temp = 0;
 	boucle = ft_boucle(arg);
-	options = malloc(sizeof(char *) * ft_get_size(arg));
+	options = malloc(ft_get_size(arg) * sizeof(char *));
+	if (options == NULL)
+		exit(EXIT_FAILURE);
 	options = ft_set_zero(ft_get_size(arg), options);
 	options[0] = ft_memalloc(ft_strlen(boucle) + 1);
 	while (boucle[index] != '\0')
