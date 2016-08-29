@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 16:22:31 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/29 20:16:46 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char		**ft_get_options(char *arg, t_dlist *list, int x, char **option)
 			else
 				option[x] = ft_memalloc(ft_strlen(arg) + 1);
 			if (arg[index] == '~' && home(list) != NULL)
-				option[x] = ft_get_options3(home(list), 0, 0, option[x]);
+				option[x] = ft_get_options3(home(list), arg, &index, option[x]);
 			else if (arg[index] == '~' && home(list) == NULL)
 				return (ft_error_home());
 			else

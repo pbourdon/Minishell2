@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 15:03:50 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/29 20:09:13 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char				**ft_get_options1(char *arg, char **options);
 char				*ft_boucle(char *arg);
 char				**ft_get_options2(char *arg, char **options, size_t *index,
 					int *x);
-char				*ft_get_options3(char *home, int index, int compteur,
+char				*ft_get_options3(char *home, char *arg, size_t *index2,
 					char *options);
 char				*ft_get_options4(size_t *index, int compteur, char *options,
 					char *arg);
